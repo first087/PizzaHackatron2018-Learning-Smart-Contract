@@ -82,6 +82,15 @@
 
     function setBalance() {
       // TODO: Call setBalance Smart Contract
+      newBalance = parseInt(document.getElementById("newBalance").value);
+      SimpleContract.setBalance(newBalance, function(error, result) {
+        if (error) return;
+
+        addStatusLine("");
+        addStatusLine("calling setBalance(" + newBalance + ")");
+        txHash = result;
+        addStatusLine("TxHash = <a href='https://kovan.etherscan.io/tx/" + txHash + "' target='_blank'>" + result + "</a>");
+      });
     }
 
     // Initializing
