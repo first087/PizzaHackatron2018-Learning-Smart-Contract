@@ -74,6 +74,10 @@
       addStatusLine("");
       addStatusLine("calling getBalance()");
       // TODO: Call getBalance Smart Contract
+      SimpleContract.getBalance(function(error, result) {
+        addStatusLine("Current balance = " + result);
+        document.getElementById("currentBalance").innerText = result;
+      });
     }
 
     function setBalance() {
